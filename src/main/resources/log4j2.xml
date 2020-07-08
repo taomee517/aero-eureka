@@ -58,8 +58,8 @@
 
        <!-- Root表示所有Logger用Root中的Appender打印日志  -->
        <Root level ="INFO" >
- <!--       <AppenderRef ref="ERROR"></AppenderRef>-->
-<!--        <AppenderRef ref="ROLLING_FILE"></AppenderRef>     -->
+			<AppenderRef ref="ERROR"></AppenderRef>
+			<AppenderRef ref="ROLLING_FILE"></AppenderRef>
 <!--        <AppenderRef ref="KAFKA"></AppenderRef>-->
         <AppenderRef ref="STDOUT"></AppenderRef>
        </Root>
