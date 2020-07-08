@@ -1,2 +1,2 @@
 @echo off
-javaw -jar aero-eureka-1.0-SNAPSHOT.jar
+javaw -jar F:\code\java\work\deploy-target\aero-eureka\aero-eureka-1.0-SNAPSHOT.jar
