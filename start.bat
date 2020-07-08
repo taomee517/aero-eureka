@@ -1,2 +1,2 @@
 @echo off
-java -jar aero-eureka-1.0-SNAPSHOT.jar
+javaw -jar aero-eureka-1.0-SNAPSHOT.jar
