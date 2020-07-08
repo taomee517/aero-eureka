@@ -1,3 +1,3 @@
 @echo off
-javaw -jar aero-eureka-1.0-SNAPSHOT.jar
+start javaw -jar aero-eureka-1.0-SNAPSHOT.jar
 exit
