@@ -1,23 +1,23 @@
 @echo off
  
-::Ä¬ÈÏPID£¬ÎÞÐèÐÞ¸Ä
+::é»˜è®¤PIDï¼Œæ— éœ€ä¿®æ”¹
 set "PID=999999"
 
-::¼ÇÂ¼µ±Ç°Ä¿Â¼£¬ÎÞÐèÐÞ¸Ä
-set "CURRENT_PATH=%~dp0"
+::è®°å½•å½“å‰ç›®å½•ï¼Œæ— éœ€ä¿®æ”¹
+set CURRENT_PATH="%~dp0"
  
-::Ö¸¶¨³ÌÐò¹¤×÷Â·¾¶
+::æŒ‡å®šç¨‹åºå·¥ä½œè·¯å¾„
 set "SERVICE_DIR=%CURRENT_PATH%"
-::Ö¸¶¨jar°ü
+::æŒ‡å®šjaråŒ…
 set "JARNAME=aero-eureka-1.0-SNAPSHOT.jar"
-::Ö¸¶¨³ÌÐò¶Ë¿ÚºÅ
+::æŒ‡å®šç¨‹åºç«¯å£å·
 set "port=8761"
-::Ö¸¶¨³ÌÐòÆô¶¯ÈÕÖ¾Ãû
+::æŒ‡å®šç¨‹åºå¯åŠ¨æ—¥å¿—å
 set "LOG_FILE=startup.log"
  
  
  
-::Á÷³Ì¿ØÖÆ
+::æµç¨‹æŽ§åˆ¶
 if "%1"=="start" (
   call:START
 ) else (
@@ -34,17 +34,17 @@ if "%1"=="start" (
 goto:eof
  
  
-::Æô¶¯jar°ü
+::å¯åŠ¨jaråŒ…
 :START
 echo function "start" starting...
 cd /d %SERVICE_DIR%
 
-::ÏîÄ¿ÒÑ¾­´ò°üºÃ£¬ÎÞÐëÔÙ±àÒë
+::é¡¹ç›®å·²ç»æ‰“åŒ…å¥½ï¼Œæ— é¡»å†ç¼–è¯‘
 ::call %MAVEN_HOME_CUSTOM%\bin\mvn clean install
 echo %SERVICE_DIR%\%JARNAME%
 start /b "%JAVA_HOME%\bin\" javaw.exe -Xms256m -Xmx1024m -jar %SERVICE_DIR%\%JARNAME%
 
-::ÈÕÖ¾Êä³öµ½Ö¸¶¨ÈÕÖ¾ÎÄ¼þ£¬ÔÝÊ±²»ÓÃÊä³öµ½startup.log
+::æ—¥å¿—è¾“å‡ºåˆ°æŒ‡å®šæ—¥å¿—æ–‡ä»¶ï¼Œæš‚æ—¶ä¸ç”¨è¾“å‡ºåˆ°startup.log
 ::> %SERVICE_DIR%\%LOG_FILE%
 
 cd /d %CURRENT_PATH%
@@ -52,7 +52,7 @@ echo == service start success
 goto:eof
  
  
-::Í£Ö¹java³ÌÐòÔËÐÐ
+::åœæ­¢javaç¨‹åºè¿è¡Œ
 :STOP
 echo function "stop" starting...
 call:findPid
@@ -61,7 +61,7 @@ echo == service stop success
 goto:eof
  
  
-::ÖØÆôjar°ü
+::é‡å¯jaråŒ…
 :RESTART
 echo function "restart" starting...
 call:STOP
@@ -71,7 +71,7 @@ echo == service restart success
 goto:eof
  
  
-::Ö´ÐÐÄ¬ÈÏ·½·¨--ÖØÆôjar°ü
+::æ‰§è¡Œé»˜è®¤æ–¹æ³•--é‡å¯jaråŒ…
 :DEFAULT
 echo Now choose default item : restart
 call:STOP
@@ -81,7 +81,7 @@ echo == service restart success
 goto:eof
  
  
-::ÕÒµ½¶Ë¿Ú¶ÔÓ¦³ÌÐòµÄpid
+::æ‰¾åˆ°ç«¯å£å¯¹åº”ç¨‹åºçš„pid
 :findPid
 echo function "findPid" start.
 for /f "tokens=5" %%i in ('netstat -aon ^| findstr %port%') do (
@@ -91,19 +91,19 @@ if "%PID%"=="999999" ( echo pid not find, skip stop . ) else ( echo pid is %PID%
 goto:eof
  
  
-::É±ËÀpid¶ÔÓ¦µÄ³ÌÐò
+::æ€æ­»pidå¯¹åº”çš„ç¨‹åº
 :shutdown
 if not "%PID%"=="999999" ( taskkill /f /pid %PID% )
 goto:eof
  
  
-::ÑÓÊ±5Ãë
+::å»¶æ—¶5ç§’
 :sleep5
 ping 127.0.0.1 -n 5 >nul
 goto:eof
  
  
-::ÑÓÊ±2Ãë
+::å»¶æ—¶2ç§’
 :sleep2
 ping 127.0.0.1 -n 2 >nul
 goto:eof
