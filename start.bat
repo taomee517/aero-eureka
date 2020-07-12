@@ -4,7 +4,7 @@
 set "PID=999999"
 
 ::记录当前目录，无需修改
-set "CURRENT_PATH=%cd%"
+set "CURRENT_PATH=%~dp0"
  
 ::指定程序工作路径
 set "SERVICE_DIR=%CURRENT_PATH%"
