@@ -42,7 +42,11 @@ cd /d %SERVICE_DIR%
 ::项目已经打包好，无须再编译
 ::call %MAVEN_HOME_CUSTOM%\bin\mvn clean install
 echo %SERVICE_DIR%\%JARNAME%
-start /b "%JAVA_HOME%\bin\" javaw.exe -Xms256m -Xmx1024m -jar %SERVICE_DIR%\%JARNAME% > %SERVICE_DIR%\%LOG_FILE%
+start /b "%JAVA_HOME%\bin\" javaw.exe -Xms256m -Xmx1024m -jar %SERVICE_DIR%\%JARNAME%
+
+::日志输出到指定日志文件，暂时不用输出到startup.log
+::> %SERVICE_DIR%\%LOG_FILE%
+
 cd /d %CURRENT_PATH%
 echo == service start success
 goto:eof
@@ -103,3 +107,5 @@ goto:eof
 :sleep2
 ping 127.0.0.1 -n 2 >nul
 goto:eof
+
+exit
