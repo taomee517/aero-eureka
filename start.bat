@@ -11,7 +11,7 @@ set "SERVICE_DIR=%CURRENT_PATH%"
 ::指定jar包
 set "JARNAME=aero-eureka-1.0-SNAPSHOT.jar"
 ::指定程序端口号
-set "port=8777"
+set "port=8761"
 ::指定程序启动日志名
 set "LOG_FILE=startup.log"
  
