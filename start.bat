@@ -1,19 +1,19 @@
-@echo off
+﻿@echo off
  
 ::默认PID，无需修改
-set "PID=999999"
+set PID="999999"
 
 ::记录当前目录，无需修改
 set CURRENT_PATH="%~dp0"
  
 ::指定程序工作路径
-set "SERVICE_DIR=%CURRENT_PATH%"
+set SERVICE_DIR="%CURRENT_PATH%"
 ::指定jar包
-set "JARNAME=aero-eureka-1.0-SNAPSHOT.jar"
+set JARNAME="aero-eureka-1.0-SNAPSHOT.jar"
 ::指定程序端口号
-set "port=8777"
+set port="8777"
 ::指定程序启动日志名
-set "LOG_FILE=startup.log"
+set LOG_FILE="startup.log"
  
  
  
@@ -41,6 +41,7 @@ cd /d %SERVICE_DIR%
 
 ::项目已经打包好，无须再编译
 ::call %MAVEN_HOME_CUSTOM%\bin\mvn clean install
+
 echo %SERVICE_DIR%\%JARNAME%
 start /b "%JAVA_HOME%\bin\" javaw.exe -Xms256m -Xmx1024m -jar %SERVICE_DIR%\%JARNAME%
 
