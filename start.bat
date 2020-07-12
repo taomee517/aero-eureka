@@ -7,9 +7,9 @@ set PID="999999"
 set CURRENT_PATH="%~dp0"
  
 ::指定程序工作路径
-set SERVICE_DIR="%CURRENT_PATH%"
+set SERVICE_DIR="%~dp0"
 ::指定jar包
-set JARNAME="aero-eureka-1.0-SNAPSHOT.jar"
+set JARNAME="%~dp0\aero-eureka-1.0-SNAPSHOT.jar"
 ::指定程序端口号
 set port="8777"
 ::指定程序启动日志名
@@ -42,8 +42,8 @@ cd /d %SERVICE_DIR%
 ::项目已经打包好，无须再编译
 ::call %MAVEN_HOME_CUSTOM%\bin\mvn clean install
 
-echo %SERVICE_DIR%\%JARNAME%
-start /b "%JAVA_HOME%\bin\" javaw.exe -Xms256m -Xmx1024m -jar %SERVICE_DIR%\%JARNAME%
+echo %JARNAME%
+start /b "%JAVA_HOME%\bin\" javaw.exe -Xms256m -Xmx1024m -jar %JARNAME%
 
 ::日志输出到指定日志文件，暂时不用输出到startup.log
 ::> %SERVICE_DIR%\%LOG_FILE%
