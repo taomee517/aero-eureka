@@ -108,5 +108,3 @@ goto:eof
 :sleep2
 ping 127.0.0.1 -n 2 >nul
 goto:eof
-
-exit
