@@ -43,7 +43,7 @@ cd /d %SERVICE_DIR%
 ::call %MAVEN_HOME_CUSTOM%\bin\mvn clean install
 
 echo %JARNAME%
-start /b "%JAVA_HOME%\bin\" javaw.exe -Xms256m -Xmx1024m -jar %JARNAME%
+start /b "%JAVA_HOME%\bin\javaw.exe" -Xms256m -Xmx1024m -jar %JARNAME%
 
 ::日志输出到指定日志文件，暂时不用输出到startup.log
 ::> %SERVICE_DIR%\%LOG_FILE%
